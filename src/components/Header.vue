@@ -1,13 +1,13 @@
 <template>
   <header class="hospital-header">
     <div class="header-container">
-      <!-- Logo/Brand -->
+      <!-- Logo -->
       <div class="brand">
         <img src="@/assets/icons/vidaPlus.jpg" alt="Logo VidaPlus" />
         <h2>VidaPlus</h2>
       </div>
 
-      <!-- Navigation Menu -->
+      <!-- Navegação-->
       <nav class="nav-menu">
         <div class="nav-group-left">
           <div class="nav-item agendamento" :class="{ active: activeSection === 'agendamento' }"

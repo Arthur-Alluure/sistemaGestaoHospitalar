@@ -7,67 +7,10 @@
     <Pacientes v-if="sidebarSection === 'pacientes'" />
 
     <!-- Seção de Agendamento -->
-    <div v-if="currentSection === 'agendamento'" class="secao-agendamento">
-      <h1>📅 Sistema de Agendamento</h1>
-      <div class="grid-layout">
-        <div class="card">
-          <h3>Próximas Consultas</h3>
-          <div class="consulta-item">
-            <p><strong>Dr. Silva</strong> - Cardiologia</p>
-            <p>Hoje, 14:30</p>
-          </div>
-          <div class="consulta-item">
-            <p><strong>Dra. Santos</strong> - Dermatologia</p>
-            <p>Amanhã, 09:00</p>
-          </div>
-          <button class="btn-primary">Novo Agendamento</button>
-        </div>
-        <div class="card">
-          <h3>Estatísticas</h3>
-          <div class="stats-grid">
-            <div class="stat-item">
-              <h4>15</h4>
-              <p>Consultas este mês</p>
-            </div>
-            <div class="stat-item">
-              <h4>3</h4>
-              <p>Pendentes</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Agendamento v-if="currentSection === 'agendamento'" />
 
     <!-- Seção de TeleConsulta -->
-    <div v-if="currentSection === 'teleconsulta'" class="secao-teleconsulta">
-      <h1>💻 TeleConsulta</h1>
-      <div class="grid-layout">
-        <div class="card">
-          <h3>Consultas Online Disponíveis</h3>
-          <div class="teleconsulta-item">
-            <p><strong>Dr. Oliveira</strong> - Clínica Geral</p>
-            <p>Disponível agora</p>
-            <button class="btn-success">Iniciar Consulta</button>
-          </div>
-          <div class="teleconsulta-item">
-            <p><strong>Dra. Costa</strong> - Pediatria</p>
-            <p>Disponível em 30min</p>
-            <button class="btn-primary">Agendar</button>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Histórico de Consultas</h3>
-          <div class="historico-item">
-            <p><strong>Dr. Mendes</strong> - 25/10/2025</p>
-            <span class="status-concluida">Concluída</span>
-          </div>
-          <div class="historico-item">
-            <p><strong>Dra. Lima</strong> - 20/10/2025</p>
-            <span class="status-concluida">Concluída</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <TeleConsulta v-if="currentSection === 'teleconsulta'" />
 
     <!-- Seção de Notificações -->
     <div v-if="currentSection === 'notificacoes'" class="secao-notificacoes">
@@ -95,9 +38,6 @@
         <button class="btn-primary">Editar Perfil</button>
       </div>
     </div>
-
-    <!-- Seção de Pacientes (Sidebar) -->
-    <Pacientes v-if="sidebarSection === 'pacientes'" />
 
     <!-- Seção de Profissionais (Sidebar) -->
     <div v-if="sidebarSection === 'profissionais'" class="secao-profissionais">
@@ -148,13 +88,17 @@
 import Dashboard from './Dashboard.vue';
 import Pacientes from './Pacientes.vue';
 import ProntuarioEletronico from './ProntuarioEletronico.vue';
+import Agendamento from './Agendamento.vue';
+import TeleConsulta from './TeleConsulta.vue';
 
 export default {
   name: 'ConteudoPrincipal',
   components: {
     Dashboard,
     Pacientes,
-    ProntuarioEletronico
+    ProntuarioEletronico,
+    Agendamento,
+    TeleConsulta
   },
   props: {
     currentSection: {
