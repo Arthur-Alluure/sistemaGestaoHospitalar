@@ -17,13 +17,8 @@
                 <span>Profissionais</span>
             </div>
 
-            <div class="sidebar-item" :class="{ active: activeItem === 'telemedicina' }"
-                @click="selectItem('telemedicina')">
-                <i class="bi bi-camera-video"></i>
-                <span>Telemedicina</span>
-            </div>
-
-            <div class="sidebar-item" :class="{ active: activeItem === 'prontuario' }" @click="selectItem('prontuario')">
+            <div class="sidebar-item" :class="{ active: activeItem === 'prontuario' }"
+                @click="selectItem('prontuario')">
                 <i class="bi bi-file-medical"></i>
                 <span>Prontuário</span>
             </div>
@@ -34,10 +29,10 @@
                 <span>Relatórios</span>
             </div>
 
-            <div class="sidebar-item" :class="{ active: activeItem === 'permissoes' }"
-                @click="selectItem('permissoes')">
-                <i class="bi bi-shield-lock"></i>
-                <span>Permissões</span>
+            <div class="sidebar-item" :class="{ active: activeItem === 'gerenciamento' }"
+                @click="selectItem('gerenciamento')">
+                <i class="bi bi-sliders"></i>
+                <span>Gerenciamento</span>
             </div>
 
             <div class="sidebar-item" :class="{ active: activeItem === 'seguranca' }" @click="selectItem('seguranca')">
@@ -46,13 +41,13 @@
             </div>
         </nav>
 
-        <!-- Footer do Desenvolvedor -->
         <div class="sidebar-footer">
             <div class="footer-divider"></div>
             <p class="footer-title">Desenvolvido por:</p>
             <p class="footer-name">Arthur Rodrigues Moreira</p>
             <div class="footer-links">
-                <a href="https://www.linkedin.com/in/seu-perfil" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/seu-perfil" target="_blank" rel="noopener noreferrer"
+                    title="LinkedIn">
                     <i class="bi bi-linkedin"></i>
                 </a>
                 <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" title="GitHub">

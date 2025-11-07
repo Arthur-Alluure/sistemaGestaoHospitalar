@@ -13,66 +13,23 @@
     <TeleConsulta v-if="currentSection === 'teleconsulta'" />
 
     <!-- Seção de Notificações -->
-    <div v-if="currentSection === 'notificacoes'" class="secao-notificacoes">
-      <h1>🔔 Notificações</h1>
-      <div class="card">
-        <div class="notificacao" v-for="notif in notificacoes" :key="notif.id">
-          <div class="notificacao-icon">{{ notif.icon }}</div>
-          <div class="notificacao-content">
-            <h4>{{ notif.titulo }}</h4>
-            <p>{{ notif.mensagem }}</p>
-            <small>{{ notif.tempo }}</small>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Notificacoes v-if="currentSection === 'notificacoes'" />
 
     <!-- Seção de Perfil -->
-    <div v-if="currentSection === 'perfil'" class="secao-perfil">
-      <h1>👤 Meu Perfil</h1>
-      <div class="card perfil-card">
-        <div class="avatar">{{ usuario.iniciais }}</div>
-        <h3>{{ usuario.nome }}</h3>
-        <p>{{ usuario.email }}</p>
-        <p><strong>Plano:</strong> {{ usuario.plano }}</p>
-        <button class="btn-primary">Editar Perfil</button>
-      </div>
-    </div>
+    <Perfil :usuario="usuario" v-if="currentSection === 'perfil'" />
 
     <!-- Seção de Profissionais (Sidebar) -->
-    <div v-if="sidebarSection === 'profissionais'" class="secao-profissionais">
-      <h1>👨‍⚕️ Profissionais</h1>
-      <div class="card">
-        <p>Gerenciamento de profissionais em desenvolvimento...</p>
-      </div>
-    </div>
+    <Profissionais v-if="sidebarSection === 'profissionais'" />
 
-    <!-- Seção de Telemedicina (Sidebar) -->
-    <div v-if="sidebarSection === 'telemedicina'" class="secao-telemedicina">
-      <h1>📹 Telemedicina</h1>
-      <div class="card">
-        <p>Sistema de telemedicina em desenvolvimento...</p>
-      </div>
-    </div>
 
     <!-- Seção de Prontuário (Sidebar) -->
     <ProntuarioEletronico v-if="sidebarSection === 'prontuario'" />
 
     <!-- Seção de Relatórios (Sidebar) -->
-    <div v-if="sidebarSection === 'relatorios'" class="secao-relatorios">
-      <h1>📊 Relatórios</h1>
-      <div class="card">
-        <p>Sistema de relatórios em desenvolvimento...</p>
-      </div>
-    </div>
+    <Relatorios v-if="sidebarSection === 'relatorios'" />
 
-    <!-- Seção de Permissões (Sidebar) -->
-    <div v-if="sidebarSection === 'permissoes'" class="secao-permissoes">
-      <h1>🔒 Permissões</h1>
-      <div class="card">
-        <p>Gerenciamento de permissões em desenvolvimento...</p>
-      </div>
-    </div>
+    <!-- Seção de Gerenciamento (Sidebar) -->
+    <Gerenciamento :usuario="usuario" v-if="sidebarSection === 'gerenciamento'" />
 
     <!-- Seção de Segurança (Sidebar) -->
     <div v-if="sidebarSection === 'seguranca'" class="secao-seguranca">
@@ -90,6 +47,11 @@ import Pacientes from './Pacientes.vue';
 import ProntuarioEletronico from './ProntuarioEletronico.vue';
 import Agendamento from './Agendamento.vue';
 import TeleConsulta from './TeleConsulta.vue';
+import Notificacoes from './Notificacoes.vue';
+import Perfil from './Perfil.vue';
+import Profissionais from './Profissionais.vue';
+import Relatorios from './Relatorios.vue';
+import Gerenciamento from './Gerenciamento.vue';
 
 export default {
   name: 'ConteudoPrincipal',
@@ -98,7 +60,12 @@ export default {
     Pacientes,
     ProntuarioEletronico,
     Agendamento,
-    TeleConsulta
+    TeleConsulta,
+    Notificacoes,
+    Perfil,
+    Profissionais,
+    Relatorios,
+    Gerenciamento
   },
   props: {
     currentSection: {
@@ -110,33 +77,6 @@ export default {
     usuario: {
       type: Object,
       required: true
-    }
-  },
-  data() {
-    return {
-      notificacoes: [
-        {
-          id: 1,
-          icon: '📅',
-          titulo: 'Consulta Agendada',
-          mensagem: 'Sua consulta com Dr. Silva foi confirmada para hoje às 14:30',
-          tempo: 'há 2 horas'
-        },
-        {
-          id: 2,
-          icon: '💊',
-          titulo: 'Lembrete de Medicação',
-          mensagem: 'Hora de tomar seu medicamento - Losartana 50mg',
-          tempo: 'há 4 horas'
-        },
-        {
-          id: 3,
-          icon: '📋',
-          titulo: 'Resultado de Exame',
-          mensagem: 'Resultado do hemograma completo já está disponível',
-          tempo: 'ontem'
-        }
-      ]
     }
   }
 }
@@ -223,69 +163,9 @@ h1 {
   font-size: 12px;
 }
 
-/* Seção de Notificações */
-.notificacao {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 16px;
-  border-bottom: 1px solid #f0f0f0;
-  transition: background-color 0.2s;
-}
-
-.notificacao:hover {
-  background-color: #f8f9fa;
-}
-
-.notificacao:last-child {
-  border-bottom: none;
-}
-
-.notificacao-icon {
-  font-size: 24px;
-  flex-shrink: 0;
-}
-
-.notificacao-content h4 {
-  margin: 0 0 8px 0;
-  color: #333;
-  font-size: 16px;
-}
-
-.notificacao-content p {
-  margin: 0 0 4px 0;
-  color: #666;
-  line-height: 1.4;
-}
-
-.notificacao-content small {
-  color: #999;
-  font-size: 12px;
-}
-
-/* Seção de Perfil */
-.perfil-card {
-  text-align: center;
-  max-width: 400px;
-  margin: 20px auto;
-}
-
-.avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #007bff, #0056b3);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0 auto 20px;
-}
-
 /* Seções de Agendamento e TeleConsulta */
-.consulta-item, .teleconsulta-item {
+.consulta-item,
+.teleconsulta-item {
   padding: 16px;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -295,12 +175,15 @@ h1 {
   align-items: center;
 }
 
-.consulta-item p, .teleconsulta-item p {
+.consulta-item p,
+.teleconsulta-item p {
   margin: 0;
 }
 
 /* Botões */
-.btn-primary, .btn-success, .btn-warning {
+.btn-primary,
+.btn-success,
+.btn-warning {
   padding: 10px 20px;
   border: none;
   border-radius: 6px;
@@ -310,12 +193,12 @@ h1 {
 }
 
 .btn-primary {
-  background: #91415c ;
+  background: #91415c;
   color: white;
 }
 
 .btn-primary:hover {
-  background: #732f43 ;
+  background: #732f43;
 }
 
 .btn-success {
@@ -341,22 +224,23 @@ h1 {
   .conteudo-principal {
     padding: 10px;
   }
-  
+
   .grid-layout {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-  
-  .consulta-item, .teleconsulta-item {
+
+  .consulta-item,
+  .teleconsulta-item {
     flex-direction: column;
     gap: 10px;
     text-align: center;
   }
-  
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   h1 {
     font-size: 24px;
   }
@@ -366,11 +250,11 @@ h1 {
   .conteudo-principal {
     padding: 8px;
   }
-  
+
   .card {
     padding: 16px;
   }
-  
+
   .stats-grid {
     grid-template-columns: 1fr;
   }

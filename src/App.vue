@@ -1,21 +1,10 @@
-
 <template>
   <div id="app">
-    <Header 
-      :active-section="conteudo" 
-      @navigate="navegarPara" 
-    />
+    <Header :active-section="conteudo" @navigate="navegarPara" />
     <div class="app-container">
-      <Sidebar 
-        :active-item="sidebarItem"
-        @select="selecionarItemSidebar"
-      />
+      <Sidebar :active-item="sidebarItem" @select="selecionarItemSidebar" />
       <main>
-        <ConteudoPrincipal 
-          :current-section="conteudo" 
-          :sidebar-section="sidebarItem"
-          :usuario="usuario"
-        />
+        <ConteudoPrincipal :current-section="conteudo" :sidebar-section="sidebarItem" :usuario="usuario" />
       </main>
     </div>
   </div>
@@ -38,9 +27,9 @@ export default {
       conteudo: null,
       sidebarItem: 'dashboard',
       usuario: {
-        nome: 'Arthur Rodrigues',
+        nome: 'Arthur Rodrigues Moreira',
         email: 'arthur@email.com',
-        plano: 'ADMIN',
+        plano: 'Administrador',
         iniciais: 'AR'
       }
     }
