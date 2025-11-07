@@ -4,7 +4,7 @@
     <div class="app-container">
       <Sidebar :active-item="sidebarItem" @select="selecionarItemSidebar" />
       <main>
-        <ConteudoPrincipal :current-section="conteudo" :sidebar-section="sidebarItem" :usuario="usuario" />
+        <ConteudoPrincipal :current-section="conteudo" :sidebar-section="sidebarItem" :usuario="usuario" @navigate="navegarPara" />
       </main>
     </div>
   </div>

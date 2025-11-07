@@ -35,9 +35,9 @@
                 <span>Gerenciamento</span>
             </div>
 
-            <div class="sidebar-item" :class="{ active: activeItem === 'seguranca' }" @click="selectItem('seguranca')">
-                <i class="bi bi-star"></i>
-                <span>Segurança</span>
+            <div class="sidebar-item" :class="{ active: activeItem === 'logout' }" @click="selectItem('logout')">
+                <i class="bi bi-box-arrow-in-left"></i>
+                <span>Sair</span>
             </div>
         </nav>
 

@@ -23,7 +23,7 @@
 
 
     <!-- Seção de Prontuário (Sidebar) -->
-    <ProntuarioEletronico v-if="sidebarSection === 'prontuario'" />
+    <ProntuarioEletronico v-if="sidebarSection === 'prontuario'" @navigate="handleNavigate" />
 
     <!-- Seção de Relatórios (Sidebar) -->
     <Relatorios v-if="sidebarSection === 'relatorios'" />
@@ -31,11 +31,11 @@
     <!-- Seção de Gerenciamento (Sidebar) -->
     <Gerenciamento :usuario="usuario" v-if="sidebarSection === 'gerenciamento'" />
 
-    <!-- Seção de Segurança (Sidebar) -->
-    <div v-if="sidebarSection === 'seguranca'" class="secao-seguranca">
-      <h1>⭐ Segurança</h1>
+    <!-- Seção de Logoff (Sidebar) -->
+    <div v-if="sidebarSection === 'logout'" class="secao-logout">
+      <h1>⭐ Logoff</h1>
       <div class="card">
-        <p>Configurações de segurança em desenvolvimento...</p>
+        <p>Configurações de logoff em desenvolvimento...</p>
       </div>
     </div>
   </div>
@@ -77,6 +77,11 @@ export default {
     usuario: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    handleNavigate(section) {
+      this.$emit('navigate', section);
     }
   }
 }

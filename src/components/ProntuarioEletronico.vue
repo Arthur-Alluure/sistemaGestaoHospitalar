@@ -39,7 +39,7 @@
             <div v-if="activeTab === 'historico'" class="content-section">
                 <div class="content-header">
                     <h2>Histórico de Atendimentos</h2>
-                    <button class="btn-primary">
+                    <button class="btn-primary" @click="abrirModalHistorico">
                         <i class="bi bi-plus-circle"></i> Novo Registro
                     </button>
                 </div>
@@ -68,7 +68,7 @@
             <div v-if="activeTab === 'agendamentos'" class="content-section">
                 <div class="content-header">
                     <h2>Agendamentos</h2>
-                    <button class="btn-primary">
+                    <button class="btn-primary" @click="navigate('agendamento')">
                         <i class="bi bi-plus-circle"></i> Novo Agendamento
                     </button>
                 </div>
@@ -94,7 +94,7 @@
             <div v-if="activeTab === 'exames'" class="content-section">
                 <div class="content-header">
                     <h2>Exames Realizados</h2>
-                    <button class="btn-primary">
+                    <button class="btn-primary" @click="abrirModalExame">
                         <i class="bi bi-plus-circle"></i> Adicionar Exame
                     </button>
                 </div>
@@ -142,7 +142,7 @@
             <div v-if="activeTab === 'prescricoes'" class="content-section">
                 <div class="content-header">
                     <h2>Prescrições Médicas</h2>
-                    <button class="btn-primary">
+                    <button class="btn-primary" @click="abrirModalPrescricao">
                         <i class="bi bi-plus-circle"></i> Nova Prescrição
                     </button>
                 </div>
@@ -181,7 +181,7 @@
             <div v-if="activeTab === 'receitas'" class="content-section">
                 <div class="content-header">
                     <h2>Receitas Médicas</h2>
-                    <button class="btn-primary">
+                    <button class="btn-primary" @click="abrirModalReceita">
                         <i class="bi bi-plus-circle"></i> Nova Receita
                     </button>
                 </div>
@@ -219,15 +219,37 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modais -->
+        <ModalHistorico :isOpen="modalHistoricoAberto" @close="fecharModalHistorico" @save="salvarHistorico" />
+        <ModalExame :isOpen="modalExameAberto" @close="fecharModalExame" @save="salvarExame" />
+        <ModalPrescricao :isOpen="modalPrescricaoAberto" @close="fecharModalPrescricao" @save="salvarPrescricao" />
+        <ModalReceita :isOpen="modalReceitaAberto" @close="fecharModalReceita" @save="salvarReceita" />
     </div>
 </template>
 
 <script>
+import ModalHistorico from './modais/prontuario/ModalHistorico.vue';
+import ModalExame from './modais/prontuario/ModalExame.vue';
+import ModalPrescricao from './modais/prontuario/ModalPrescricao.vue';
+import ModalReceita from './modais/prontuario/ModalReceita.vue';
+
 export default {
     name: 'ProntuarioEletronico',
+    components: {
+        ModalHistorico,
+        ModalExame,
+        ModalPrescricao,
+        ModalReceita
+    },
     data() {
         return {
             activeTab: 'historico',
+            // Estados dos modais
+            modalHistoricoAberto: false,
+            modalExameAberto: false,
+            modalPrescricaoAberto: false,
+            modalReceitaAberto: false,
             historico: [
                 {
                     id: 1,
@@ -353,6 +375,122 @@ export default {
                     ]
                 }
             ]
+        }
+    },
+    methods: {
+        navigate(section) {
+            this.$emit('navigate', section);
+        },
+        // Métodos Histórico
+        abrirModalHistorico() {
+            this.modalHistoricoAberto = true;
+        },
+        fecharModalHistorico() {
+            this.modalHistoricoAberto = false;
+        },
+        salvarHistorico(dados) {
+            const novoId = Math.max(...this.historico.map(h => h.id)) + 1;
+            const dataFormatada = this.formatarData(dados.data);
+
+            this.historico.unshift({
+                id: novoId,
+                tipo: dados.tipo,
+                data: dataFormatada,
+                medico: dados.medico,
+                descricao: dados.descricao,
+                tags: dados.tags
+            });
+
+            alert('Registro adicionado ao histórico com sucesso!');
+        },
+        // Métodos Exame
+        abrirModalExame() {
+            this.modalExameAberto = true;
+        },
+        fecharModalExame() {
+            this.modalExameAberto = false;
+        },
+        salvarExame(dados) {
+            const novoId = Math.max(...this.exames.map(e => e.id)) + 1;
+            const statusTexto = {
+                'concluido': 'Concluído',
+                'aguardando': 'Aguardando',
+                'pendente': 'Pendente'
+            };
+
+            const dataFormatada = this.formatarData(dados.data);
+
+            this.exames.unshift({
+                id: novoId,
+                data: dataFormatada,
+                tipo: dados.tipo,
+                subtipo: dados.subtipo || '-',
+                medico: dados.medico,
+                status: dados.status,
+                statusTexto: statusTexto[dados.status]
+            });
+
+            alert('Exame adicionado com sucesso!');
+        },
+        // Métodos Prescrição
+        abrirModalPrescricao() {
+            this.modalPrescricaoAberto = true;
+        },
+        fecharModalPrescricao() {
+            this.modalPrescricaoAberto = false;
+        },
+        salvarPrescricao(dados) {
+            const novoId = Math.max(...this.prescricoes.map(p => p.id)) + 1;
+            const statusTexto = {
+                'ativo': 'Em uso',
+                'concluido': 'Concluído',
+                'suspenso': 'Suspenso'
+            };
+
+            const dataFormatada = this.formatarData(dados.data);
+
+            this.prescricoes.unshift({
+                id: novoId,
+                medicamento: dados.medicamento,
+                dosagem: dados.dosagem,
+                frequencia: dados.frequencia,
+                duracao: dados.duracao,
+                medico: dados.medico,
+                data: dataFormatada,
+                observacoes: dados.observacoes,
+                status: dados.status,
+                statusTexto: statusTexto[dados.status]
+            });
+
+            alert('Prescrição adicionada com sucesso!');
+        },
+        // Métodos Receita
+        abrirModalReceita() {
+            this.modalReceitaAberto = true;
+        },
+        fecharModalReceita() {
+            this.modalReceitaAberto = false;
+        },
+        salvarReceita(dados) {
+            const novoId = Math.max(...this.receitas.map(r => r.id)) + 1;
+            const medicamentosArray = dados.medicamentos.split('\n').filter(m => m.trim() !== '');
+            const dataFormatada = this.formatarData(dados.data);
+
+            this.receitas.unshift({
+                id: novoId,
+                numero: dados.numero,
+                data: dataFormatada,
+                medico: dados.medico,
+                medicamentos: medicamentosArray
+            });
+
+            alert('Receita adicionada com sucesso!');
+        },
+        // Método auxiliar para formatar data
+        formatarData(dataISO) {
+            if (!dataISO) return '';
+            const [ano, mes, dia] = dataISO.split('-');
+            return `${dia}/${mes}/${ano}`;
         }
     }
 }
