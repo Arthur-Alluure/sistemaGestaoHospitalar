@@ -71,5 +71,12 @@
             "descricao": "Dra. Anna Clara Lopes atendeu 3 pacientes remotamente",
             "tempo": "há 3 horas"
         }
-    ]
+    ],
+    "performance": {
+        "taxaComparecimento": 85,
+        "tempoMedioAtendimento": 28,
+        "satisfacaoClientes": 4.7,
+        "consultasRealizadas": 156,
+        "consultasAgendadas": 184
+    }
 }

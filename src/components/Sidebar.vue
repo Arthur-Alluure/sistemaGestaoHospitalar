@@ -46,11 +46,11 @@
             <p class="footer-title">Desenvolvido por:</p>
             <p class="footer-name">Arthur Rodrigues Moreira</p>
             <div class="footer-links">
-                <a href="https://www.linkedin.com/in/seu-perfil" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/in/arthur-moreira85" target="_blank" rel="noopener noreferrer"
                     title="LinkedIn">
                     <i class="bi bi-linkedin"></i>
                 </a>
-                <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" title="GitHub">
+                <a href="https://github.com/Arthur-Alluure" target="_blank" rel="noopener noreferrer" title="GitHub">
                     <i class="bi bi-github"></i>
                 </a>
             </div>

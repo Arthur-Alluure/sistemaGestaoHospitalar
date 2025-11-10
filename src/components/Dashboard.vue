@@ -98,17 +98,61 @@
       </div>
     </div>
 
-    <!-- Gráfico de Tendências -->
+    <!-- Performance do Mês -->
     <div class="card chart-card">
       <div class="card-header">
-        <h3><i class="bi bi-graph-up"></i> Tendências de Atendimento</h3>
-        <div class="chart-legend">
-          <span class="legend-item"><span class="dot consultas"></span> Consultas</span>
-          <span class="legend-item"><span class="dot teleconsultas"></span> TeleConsultas</span>
-        </div>
+        <h3><i class="bi bi-graph-up-arrow"></i> Performance do Mês</h3>
       </div>
-      <div class="chart-placeholder">
-        <p>📊 Gráfico de tendências (Em desenvolvimento)</p>
+      <div class="performance-grid">
+        <div class="performance-item">
+          <div class="performance-icon comparecimento">
+            <i class="bi bi-check-circle-fill"></i>
+          </div>
+          <div class="performance-info">
+            <h4>{{ performance.taxaComparecimento }}%</h4>
+            <p>Taxa de Comparecimento</p>
+            <div class="progress-bar">
+              <div class="progress-fill" :style="{ width: performance.taxaComparecimento + '%' }"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="performance-item">
+          <div class="performance-icon tempo">
+            <i class="bi bi-clock-fill"></i>
+          </div>
+          <div class="performance-info">
+            <h4>{{ performance.tempoMedioAtendimento }} min</h4>
+            <p>Tempo Médio de Atendimento</p>
+            <span class="performance-badge good">Dentro do ideal</span>
+          </div>
+        </div>
+
+        <div class="performance-item">
+          <div class="performance-icon satisfacao">
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <div class="performance-info">
+            <h4>{{ performance.satisfacaoClientes }}/5.0</h4>
+            <p>Satisfação dos Pacientes</p>
+            <div class="stars">
+              <i class="bi bi-star-fill" v-for="n in 5" :key="n"
+                :class="{ active: n <= Math.round(performance.satisfacaoClientes) }"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="performance-item">
+          <div class="performance-icon consultas">
+            <i class="bi bi-calendar-check-fill"></i>
+          </div>
+          <div class="performance-info">
+            <h4>{{ performance.consultasRealizadas }}/{{ performance.consultasAgendadas }}</h4>
+            <p>Consultas Realizadas</p>
+            <span class="performance-badge">{{ Math.round((performance.consultasRealizadas /
+              performance.consultasAgendadas) * 100) }}% concluído</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -139,6 +183,7 @@ export default {
       receitaMensal: mockData.dashboard.stats.receitaMensal,
       proximasConsultas: mockData.dashboard.proximasConsultas,
       atividadesRecentes: mockData.dashboard.atividadesRecentes,
+      performance: mockData.dashboard.performance
     }
   }
 }
@@ -466,29 +511,118 @@ export default {
   color: #666666;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+/* Performance */
+.performance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
 }
 
-.dot.consultas {
-  background: #E91E63;
+.performance-item {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 10px;
+  background: #F9F9F9;
+  transition: all 0.3s ease;
 }
 
-.dot.teleconsultas {
-  background: #00BCD4;
+.performance-item:hover {
+  background: #F5F5F5;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.chart-placeholder {
-  height: 300px;
+.performance-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #F5F5F5;
-  border-radius: 8px;
+  font-size: 26px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.performance-icon.comparecimento {
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+}
+
+.performance-icon.tempo {
+  background: linear-gradient(135deg, #00BCD4, #26C6DA);
+}
+
+.performance-icon.satisfacao {
+  background: linear-gradient(135deg, #FF9800, #FFB74D);
+}
+
+.performance-icon.consultas {
+  background: linear-gradient(135deg, #E91E63, #EC407A);
+}
+
+.performance-info {
+  flex: 1;
+}
+
+.performance-info h4 {
+  margin: 0 0 6px 0;
+  color: #333333;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.performance-info p {
+  margin: 0 0 10px 0;
   color: #666666;
-  font-size: 18px;
+  font-size: 14px;
+}
+
+.performance-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #E0E0E0;
+  color: #666666;
+}
+
+.performance-badge.good {
+  background: #E8F5E9;
+  color: #4CAF50;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #E0E0E0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #66BB6A);
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.stars {
+  display: flex;
+  gap: 5px;
+  font-size: 16px;
+}
+
+.stars i {
+  color: #E0E0E0;
+  transition: color 0.3s ease;
+}
+
+.stars i.active {
+  color: #FFB74D;
 }
 
 /* Responsividade */
@@ -505,14 +639,13 @@ export default {
     grid-template-columns: 1fr;
   }
 
+  .performance-grid {
+    grid-template-columns: 1fr;
+  }
+
   .consulta-item {
     flex-direction: column;
     text-align: center;
-  }
-
-  .chart-legend {
-    flex-direction: column;
-    gap: 10px;
   }
 }
 
@@ -524,6 +657,12 @@ export default {
   .stat-card {
     flex-direction: column;
     text-align: center;
+  }
+
+  .performance-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
   }
 }
 </style>
