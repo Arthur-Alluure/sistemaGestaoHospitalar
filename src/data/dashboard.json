@@ -1,0 +1,75 @@
+{
+    "stats": {
+        "totalPacientes": 247,
+        "consultasHoje": 18,
+        "consultasPendentes": 5,
+        "profissionaisAtivos": 12,
+        "receitaMensal": 45750
+    },
+    "proximasConsultas": [
+        {
+            "id": 1,
+            "hora": "13:30",
+            "data": "Hoje",
+            "paciente": "João Santos",
+            "medico": "Dr. Arthur Moreira",
+            "especialidade": "Cardiologia",
+            "status": "confirmada",
+            "statusTexto": "Confirmada"
+        },
+        {
+            "id": 2,
+            "hora": "14:00",
+            "data": "Hoje",
+            "paciente": "Olívia Lopes",
+            "medico": "Dr. Anna Clara",
+            "especialidade": "Pediatria",
+            "status": "confirmada",
+            "statusTexto": "Confirmada"
+        },
+        {
+            "id": 3,
+            "hora": "10:00",
+            "data": "Amanhã",
+            "paciente": "Pedro Alves",
+            "medico": "Enf. Beatriz Souza",
+            "especialidade": "Enfermagem Geral",
+            "status": "confirmada",
+            "statusTexto": "Confirmada"
+        }
+    ],
+    "atividadesRecentes": [
+        {
+            "id": 1,
+            "tipo": "nova-consulta",
+            "icone": "bi bi-calendar-plus",
+            "titulo": "Nova consulta agendada",
+            "descricao": "Mariana Lima agendou consulta com Dr. Ricardo Mendes",
+            "tempo": "há 15 minutos"
+        },
+        {
+            "id": 2,
+            "tipo": "paciente",
+            "icone": "bi bi-person-plus",
+            "titulo": "Novo paciente cadastrado",
+            "descricao": "Mariana Lima foi cadastrada no sistema",
+            "tempo": "há 1 hora"
+        },
+        {
+            "id": 3,
+            "tipo": "exame",
+            "icone": "bi bi-file-earmark-medical",
+            "titulo": "Resultado de exame disponível",
+            "descricao": "Hemograma completo de Carlos Souza está disponível para visualização",
+            "tempo": "há 2 horas"
+        },
+        {
+            "id": 4,
+            "tipo": "teleconsulta",
+            "icone": "bi bi-camera-video",
+            "titulo": "TeleConsulta realizada",
+            "descricao": "Dra. Anna Clara Lopes atendeu 3 pacientes remotamente",
+            "tempo": "há 3 horas"
+        }
+    ]
+}

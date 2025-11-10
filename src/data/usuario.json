@@ -1,0 +1,24 @@
+{
+    "nome": "Arthur Rodrigues Moreira",
+    "email": "arthur@email.com",
+    "plano": "Administrador",
+    "iniciais": "AR",
+    "telefone": "(11) 98765-4321",
+    "dataNascimento": "2001-05-21",
+    "cpf": "123.456.789-00",
+    "genero": "Masculino",
+    "cep": "01310-100",
+    "endereco": "Rua Senador Lúcio Bittencourt, 1578",
+    "cidade": "Minas Gerais",
+    "estado": "MG",
+    "dadosProfissionais": {
+        "cargo": "Administrador do Sistema",
+        "especialidade": "Gestão Hospitalar",
+        "registro": "-",
+        "dataAdmissao": "2023-01-10"
+    },
+    "preferencias": {
+        "notificacoesEmail": true,
+        "notificacoesPush": true
+    }
+}

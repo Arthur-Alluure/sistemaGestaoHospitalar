@@ -373,7 +373,7 @@ select.form-control {
 
 .form-control:read-only {
     background-color: #f8f9fa;
-    cursor: not-allowed;
+    cursor: pointer;
 }
 
 textarea.form-control {

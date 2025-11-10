@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "tipo": "consulta",
+    "titulo": "Consulta Agendada",
+    "mensagem": "Nova consulta agendada com Dra. Anna Clara Souza Lopes para Olívia Rodrigues Lopes às 14:00 de hoje.",
+    "data": "2025-11-10T14:00:00.000Z",
+    "lida": false,
+    "prioridade": "alta"
+  },
+  {
+    "id": 2,
+    "tipo": "consulta",
+    "titulo": "Lembrete de Consulta",
+    "mensagem": "Consulta com Dr. Arthur Moreira para João Santos começa em 30 minutos.",
+    "data": "2025-11-10T13:45:00.000Z",
+    "lida": false,
+    "prioridade": "alta"
+  },
+  {
+    "id": 3,
+    "tipo": "paciente",
+    "titulo": "Novo Paciente Cadastrado",
+    "mensagem": "Mariana Lima foi cadastrada no sistema com sucesso.",
+    "data": "2025-11-10T13:00:00.000Z",
+    "lida": false,
+    "prioridade": "normal"
+  },
+  {
+    "id": 4,
+    "tipo": "consulta",
+    "titulo": "Consulta Cancelada",
+    "mensagem": "A consulta de Carlos Souza com Enf. Beatriz Souza foi cancelada.",
+    "data": "2025-11-10T12:00:00.000Z",
+    "lida": true,
+    "prioridade": "normal"
+  },
+  {
+    "id": 5,
+    "tipo": "sistema",
+    "titulo": "Atualização do Sistema",
+    "mensagem": "Nova versão do sistema disponível. Clique para atualizar.",
+    "data": "2025-11-10T11:00:00.000Z",
+    "lida": true,
+    "prioridade": "normal"
+  },
+  {
+    "id": 6,
+    "tipo": "paciente",
+    "titulo": "Prontuário Atualizado",
+    "mensagem": "O prontuário de Carlos Souza foi atualizado com novos exames.",
+    "data": "2025-11-10T09:00:00.000Z",
+    "lida": true,
+    "prioridade": "normal"
+  },
+  {
+    "id": 7,
+    "tipo": "lembrete",
+    "titulo": "Revisão de Prontuários",
+    "mensagem": "Lembrete: Revisar prontuários pendentes antes do fim do expediente.",
+    "data": "2025-11-09T14:00:00.000Z",
+    "lida": false,
+    "prioridade": "normal"
+  },
+  {
+    "id": 8,
+    "tipo": "sistema",
+    "titulo": "Backup Realizado",
+    "mensagem": "Backup automático dos dados realizado com sucesso às 02:00.",
+    "data": "2025-11-09T02:00:00.000Z",
+    "lida": true,
+    "prioridade": "baixa"
+  },
+  {
+    "id": 9,
+    "tipo": "consulta",
+    "titulo": "Consulta Reagendada",
+    "mensagem": "Consulta de Pedro Alves reagendada para amanhã às 10:00.",
+    "data": "2025-11-08T14:00:00.000Z",
+    "lida": true,
+    "prioridade": "normal"
+  },
+  {
+    "id": 10,
+    "tipo": "lembrete",
+    "titulo": "Reunião de Equipe",
+    "mensagem": "Reunião de equipe agendada para sexta-feira às 15:00.",
+    "data": "2025-11-07T14:00:00.000Z",
+    "lida": true,
+    "prioridade": "normal"
+  }
+]

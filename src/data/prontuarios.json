@@ -1,0 +1,146 @@
+{
+  "historico": [
+    {
+      "id": 1,
+      "tipo": "Consulta Cardiológica",
+      "data": "15/10/2025",
+      "medico": "Dr. Arthur Moreira",
+      "descricao": "Avaliação cardiovascular de rotina. Pressão arterial normal, ausculta cardíaca sem alterações.",
+      "tags": [
+        "Cardiologia",
+        "Rotina"
+      ]
+    },
+    {
+      "id": 2,
+      "tipo": "Retorno - Pediatria",
+      "data": "10/10/2025",
+      "medico": "Dra. Anna Clara Souza Lopes",
+      "descricao": "Reavaliação de tratamento pediátrico. Melhora significativa observada.",
+      "tags": [
+        "Pediatria",
+        "Retorno"
+      ]
+    },
+    {
+      "id": 3,
+      "tipo": "Consulta de Urgência",
+      "data": "05/10/2025",
+      "medico": "Enf. Beatriz Souza",
+      "descricao": "Atendimento de urgência por febre alta. Prescrição de antitérmicos e repouso.",
+      "tags": [
+        "Urgência",
+        "Enfermagem"
+      ]
+    }
+  ],
+  "agendamentos": [
+    {
+      "id": 1,
+      "data": "30/10/2025",
+      "hora": "14:30",
+      "especialidade": "Cardiologia",
+      "medico": "Dr. Arthur Moreira",
+      "local": "Consultório 205",
+      "status": "confirmado",
+      "statusTexto": "Confirmado"
+    },
+    {
+      "id": 2,
+      "data": "05/11/2025",
+      "hora": "14:00",
+      "especialidade": "Pediatria",
+      "medico": "Dra. Anna Clara Souza Lopes",
+      "local": "Consultório 102",
+      "status": "confirmado",
+      "statusTexto": "Confirmado"
+    },
+    {
+      "id": 3,
+      "data": "12/11/2025",
+      "hora": "10:00",
+      "especialidade": "Enfermagem Geral",
+      "medico": "Enf. Beatriz Souza",
+      "local": "Sala de Enfermagem 3",
+      "status": "pendente",
+      "statusTexto": "Pendente"
+    }
+  ],
+  "exames": [
+    {
+      "id": 1,
+      "data": "20/10/2025",
+      "tipo": "Hemograma Completo",
+      "subtipo": "Análise sanguínea",
+      "medico": "Dr. Arthur Moreira",
+      "status": "concluido",
+      "statusTexto": "Concluído"
+    },
+    {
+      "id": 2,
+      "data": "18/10/2025",
+      "tipo": "Raio-X Tórax",
+      "subtipo": "Imagem",
+      "medico": "Enf. Beatriz Souza",
+      "status": "concluido",
+      "statusTexto": "Concluído"
+    },
+    {
+      "id": 3,
+      "data": "25/10/2025",
+      "tipo": "Eletrocardiograma",
+      "subtipo": "Exame cardíaco",
+      "medico": "Dr. Arthur Moreira",
+      "status": "aguardando",
+      "statusTexto": "Aguardando"
+    }
+  ],
+  "prescricoes": [
+    {
+      "id": 1,
+      "medicamento": "Losartana Potássica",
+      "dosagem": "50mg",
+      "frequencia": "1x ao dia",
+      "duracao": "30 dias",
+      "medico": "Dr. Arthur Moreira",
+      "data": "15/10/2025",
+      "observacoes": "Tomar pela manhã, em jejum",
+      "status": "ativo",
+      "statusTexto": "Em uso"
+    },
+    {
+      "id": 2,
+      "medicamento": "Omeprazol",
+      "dosagem": "20mg",
+      "frequencia": "1x ao dia",
+      "duracao": "15 dias",
+      "medico": "Dra. Anna Clara Souza Lopes",
+      "data": "10/10/2025",
+      "observacoes": "Tomar 30 minutos antes do café da manhã",
+      "status": "ativo",
+      "statusTexto": "Em uso"
+    }
+  ],
+  "receitas": [
+    {
+      "id": 1,
+      "numero": "00123",
+      "data": "15/10/2025",
+      "medico": "Dr. Arthur Moreira - CRM 123456-SP",
+      "medicamentos": [
+        "Losartana Potássica 50mg - 1x ao dia",
+        "Hidroclorotiazida 25mg - 1x ao dia"
+      ]
+    },
+    {
+      "id": 2,
+      "numero": "00124",
+      "data": "10/10/2025",
+      "medico": "Dra. Anna Clara Souza Lopes - CRM 654321-SP",
+      "medicamentos": [
+        "Omeprazol 20mg - 1x ao dia",
+        "Vitamina D 2000UI - 1x ao dia"
+      ]
+    }
+  ]
+}

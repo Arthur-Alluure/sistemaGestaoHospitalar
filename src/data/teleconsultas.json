@@ -1,0 +1,91 @@
+{
+  "consultasDisponiveis": [
+    {
+      "id": 1,
+      "medico": "Dr. Arthur Moreira",
+      "especialidade": "Cardiologia",
+      "disponivel": true,
+      "paciente": null,
+      "horario": null
+    },
+    {
+      "id": 2,
+      "medico": "Dra. Anna Clara Souza Lopes",
+      "especialidade": "Pediatria",
+      "disponivel": false,
+      "paciente": "Olívia Rodrigues Lopes",
+      "horario": "14:00"
+    }
+  ],
+  "historicoConsultas": [
+    {
+      "id": 1,
+      "medico": "Dr. Arthur Moreira",
+      "paciente": "João Santos",
+      "data": "25/10/2025",
+      "duracao": "30 min",
+      "status": "concluida"
+    },
+    {
+      "id": 2,
+      "medico": "Dra. Anna Clara Souza Lopes",
+      "paciente": "Carlos Souza",
+      "data": "20/10/2025",
+      "duracao": "25 min",
+      "status": "concluida"
+    }
+  ],
+  "pacientes": [
+    {
+      "id": 1,
+      "nome": "Olívia Rodrigues Lopes"
+    },
+    {
+      "id": 2,
+      "nome": "João Santos"
+    },
+    {
+      "id": 3,
+      "nome": "Carlos Souza"
+    },
+    {
+      "id": 4,
+      "nome": "Pedro Alves"
+    }
+  ],
+  "medicos": [
+    {
+      "id": 1,
+      "nome": "Dr. Arthur Moreira",
+      "especialidade": "Cardiologia"
+    },
+    {
+      "id": 2,
+      "nome": "Dra. Anna Clara Souza Lopes",
+      "especialidade": "Pediatria"
+    },
+    {
+      "id": 3,
+      "nome": "Enf. Beatriz Souza",
+      "especialidade": "Enfermagem Geral"
+    }
+  ],
+  "horariosDisponiveis": [
+    "08:00",
+    "08:30",
+    "09:00",
+    "09:30",
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30",
+    "17:00",
+    "17:30"
+  ]
+}

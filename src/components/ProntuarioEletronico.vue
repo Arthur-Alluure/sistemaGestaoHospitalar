@@ -233,6 +233,7 @@ import ModalHistorico from './modais/prontuario/ModalHistorico.vue';
 import ModalExame from './modais/prontuario/ModalExame.vue';
 import ModalPrescricao from './modais/prontuario/ModalPrescricao.vue';
 import ModalReceita from './modais/prontuario/ModalReceita.vue';
+import mockData from '@/data';
 
 export default {
     name: 'ProntuarioEletronico',
@@ -250,131 +251,11 @@ export default {
             modalExameAberto: false,
             modalPrescricaoAberto: false,
             modalReceitaAberto: false,
-            historico: [
-                {
-                    id: 1,
-                    tipo: 'Consulta Cardiológica',
-                    data: '15/10/2025',
-                    medico: 'Dr. João Santos',
-                    descricao: 'Avaliação cardiovascular de rotina. Pressão arterial normal, ausculta cardíaca sem alterações.',
-                    tags: ['Cardiologia', 'Rotina']
-                },
-                {
-                    id: 2,
-                    tipo: 'Retorno - Dermatologia',
-                    data: '10/10/2025',
-                    medico: 'Dra. Ana Costa',
-                    descricao: 'Reavaliação de tratamento dermatológico. Melhora significativa observada.',
-                    tags: ['Dermatologia', 'Retorno']
-                },
-                {
-                    id: 3,
-                    tipo: 'Consulta de Urgência',
-                    data: '05/10/2025',
-                    medico: 'Dr. Paulo Lima',
-                    descricao: 'Atendimento de urgência por dor lombar aguda. Prescrição de analgésicos e repouso.',
-                    tags: ['Urgência', 'Ortopedia']
-                }
-            ],
-            agendamentos: [
-                {
-                    id: 1,
-                    data: '30/10/2025',
-                    hora: '14:30',
-                    especialidade: 'Cardiologia',
-                    medico: 'Dr. João Santos',
-                    local: 'Consultório 205',
-                    status: 'confirmado',
-                    statusTexto: 'Confirmado'
-                },
-                {
-                    id: 2,
-                    data: '05/11/2025',
-                    hora: '09:00',
-                    especialidade: 'Oftalmologia',
-                    medico: 'Dra. Maria Silva',
-                    local: 'Consultório 102',
-                    status: 'pendente',
-                    statusTexto: 'Pendente'
-                }
-            ],
-            exames: [
-                {
-                    id: 1,
-                    data: '20/10/2025',
-                    tipo: 'Hemograma Completo',
-                    subtipo: 'Análise sanguínea',
-                    medico: 'Dr. João Santos',
-                    status: 'concluido',
-                    statusTexto: 'Concluído'
-                },
-                {
-                    id: 2,
-                    data: '18/10/2025',
-                    tipo: 'Raio-X Tórax',
-                    subtipo: 'Imagem',
-                    medico: 'Dr. Paulo Lima',
-                    status: 'concluido',
-                    statusTexto: 'Concluído'
-                },
-                {
-                    id: 3,
-                    data: '25/10/2025',
-                    tipo: 'Eletrocardiograma',
-                    subtipo: 'Exame cardíaco',
-                    medico: 'Dr. João Santos',
-                    status: 'aguardando',
-                    statusTexto: 'Aguardando'
-                }
-            ],
-            prescricoes: [
-                {
-                    id: 1,
-                    medicamento: 'Losartana Potássica',
-                    dosagem: '50mg',
-                    frequencia: '1x ao dia',
-                    duracao: '30 dias',
-                    medico: 'Dr. João Santos',
-                    data: '15/10/2025',
-                    observacoes: 'Tomar pela manhã, em jejum',
-                    status: 'ativo',
-                    statusTexto: 'Em uso'
-                },
-                {
-                    id: 2,
-                    medicamento: 'Omeprazol',
-                    dosagem: '20mg',
-                    frequencia: '1x ao dia',
-                    duracao: '15 dias',
-                    medico: 'Dra. Ana Costa',
-                    data: '10/10/2025',
-                    observacoes: 'Tomar 30 minutos antes do café da manhã',
-                    status: 'ativo',
-                    statusTexto: 'Em uso'
-                }
-            ],
-            receitas: [
-                {
-                    id: 1,
-                    numero: '00123',
-                    data: '15/10/2025',
-                    medico: 'Dr. João Santos - CRM 12345',
-                    medicamentos: [
-                        'Losartana Potássica 50mg - 1x ao dia',
-                        'Hidroclorotiazida 25mg - 1x ao dia'
-                    ]
-                },
-                {
-                    id: 2,
-                    numero: '00124',
-                    data: '10/10/2025',
-                    medico: 'Dra. Ana Costa - CRM 67890',
-                    medicamentos: [
-                        'Omeprazol 20mg - 1x ao dia',
-                        'Vitamina D 2000UI - 1x ao dia'
-                    ]
-                }
-            ]
+            historico: mockData.prontuarios.historico,
+            agendamentos: mockData.prontuarios.agendamentos,
+            exames: mockData.prontuarios.exames,
+            prescricoes: mockData.prontuarios.prescricoes,
+            receitas: mockData.prontuarios.receitas
         }
     },
     methods: {

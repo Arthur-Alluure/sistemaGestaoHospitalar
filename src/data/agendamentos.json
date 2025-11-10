@@ -1,0 +1,87 @@
+{
+  "proximasConsultas": [
+    {
+      "id": 1,
+      "paciente": "João Santos",
+      "medico": "Dr. Arthur Moreira",
+      "especialidade": "Cardiologia",
+      "data": "Hoje",
+      "hora": "13:30"
+    },
+    {
+      "id": 2,
+      "paciente": "Olívia Lopes",
+      "medico": "Dra. Anna Clara Souza Lopes",
+      "especialidade": "Pediatria",
+      "data": "Hoje",
+      "hora": "14:00"
+    }
+  ],
+  "pacientes": [
+    {
+      "id": 1,
+      "nome": "Olívia Rodrigues Lopes"
+    },
+    {
+      "id": 2,
+      "nome": "João Santos"
+    },
+    {
+      "id": 3,
+      "nome": "Carlos Souza"
+    },
+    {
+      "id": 4,
+      "nome": "Pedro Alves"
+    },
+    {
+      "id": 5,
+      "nome": "Mariana Lima"
+    }
+  ],
+  "medicos": [
+    {
+      "id": 1,
+      "nome": "Dr. Arthur Moreira",
+      "especialidade": "Cardiologia"
+    },
+    {
+      "id": 2,
+      "nome": "Dra. Anna Clara Souza Lopes",
+      "especialidade": "Pediatria"
+    },
+    {
+      "id": 3,
+      "nome": "Enf. Beatriz Souza",
+      "especialidade": "Enfermagem Geral"
+    },
+    {
+      "id": 4,
+      "nome": "Dr. Ricardo Mendes",
+      "especialidade": "Ortopedia"
+    },
+    {
+      "id": 5,
+      "nome": "Dra. Fernanda Lima",
+      "especialidade": "Ginecologia"
+    }
+  ],
+  "horariosDisponiveis": [
+    "08:00",
+    "08:30",
+    "09:00",
+    "09:30",
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30",
+    "17:00",
+    "17:30"
+  ]
+}

@@ -14,6 +14,7 @@
 import Header from './components/Header.vue';
 import Sidebar from './components/Sidebar.vue';
 import ConteudoPrincipal from './components/ConteudoPrincipal.vue';
+import mockData from './data';
 
 export default {
   name: 'App',
@@ -26,12 +27,7 @@ export default {
     return {
       conteudo: null,
       sidebarItem: 'dashboard',
-      usuario: {
-        nome: 'Arthur Rodrigues Moreira',
-        email: 'arthur@email.com',
-        plano: 'Administrador',
-        iniciais: 'AR'
-      }
+      usuario: { ...mockData.usuario }
     }
   },
   methods: {

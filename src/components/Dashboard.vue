@@ -115,6 +115,8 @@
 </template>
 
 <script>
+import mockData from '@/data'
+
 export default {
   name: 'Dashboard',
   props: {
@@ -130,77 +132,13 @@ export default {
   },
   data() {
     return {
-      totalPacientes: 247,
-      consultasHoje: 18,
-      consultasPendentes: 5,
-      profissionaisAtivos: 12,
-      receitaMensal: 45750,
-      proximasConsultas: [
-        {
-          id: 1,
-          hora: '14:30',
-          data: 'Hoje',
-          paciente: 'Maria Silva',
-          medico: 'Dr. João Santos',
-          especialidade: 'Cardiologia',
-          status: 'confirmada',
-          statusTexto: 'Confirmada'
-        },
-        {
-          id: 2,
-          hora: '15:00',
-          data: 'Hoje',
-          paciente: 'Beatriz Souza',
-          medico: 'Dra. Anna Clara Lopes',
-          especialidade: 'Dermatologia',
-          status: 'aguardando',
-          statusTexto: 'Aguardando'
-        },
-        {
-          id: 3,
-          hora: '09:00',
-          data: 'Amanhã',
-          paciente: 'Pedro Mendes',
-          medico: 'Dr. Paulo Lima',
-          especialidade: 'Ortopedia',
-          status: 'confirmada',
-          statusTexto: 'Confirmada'
-        }
-      ],
-      atividadesRecentes: [
-        {
-          id: 1,
-          tipo: 'nova-consulta',
-          icone: 'bi bi-calendar-plus',
-          titulo: 'Nova consulta agendada',
-          descricao: 'Maria Silva agendou consulta com Dr. João Santos',
-          tempo: 'há 15 minutos'
-        },
-        {
-          id: 2,
-          tipo: 'paciente',
-          icone: 'bi bi-person-plus',
-          titulo: 'Novo paciente cadastrado',
-          descricao: 'Luciana Ferreira foi cadastrada no sistema',
-          tempo: 'há 1 hora'
-        },
-        {
-          id: 3,
-          tipo: 'exame',
-          icone: 'bi bi-file-earmark-medical',
-          titulo: 'Resultado de exame disponível',
-          descricao: 'Hemograma completo de Carlos Oliveira',
-          tempo: 'há 2 horas'
-        },
-        {
-          id: 4,
-          tipo: 'teleconsulta',
-          icone: 'bi bi-camera-video',
-          titulo: 'TeleConsulta realizada',
-          descricao: 'Dra. Anna Clara Lopes atendeu 3 pacientes remotamente',
-          tempo: 'há 3 horas'
-        }
-      ],
+      totalPacientes: mockData.dashboard.stats.totalPacientes,
+      consultasHoje: mockData.dashboard.stats.consultasHoje,
+      consultasPendentes: mockData.dashboard.stats.consultasPendentes,
+      profissionaisAtivos: mockData.dashboard.stats.profissionaisAtivos,
+      receitaMensal: mockData.dashboard.stats.receitaMensal,
+      proximasConsultas: mockData.dashboard.proximasConsultas,
+      atividadesRecentes: mockData.dashboard.atividadesRecentes,
     }
   }
 }

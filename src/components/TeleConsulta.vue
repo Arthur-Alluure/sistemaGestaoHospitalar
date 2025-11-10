@@ -263,6 +263,8 @@
 </template>
 
 <script>
+import mockData from '@/data';
+
 export default {
     name: 'TeleConsulta',
     data() {
@@ -283,58 +285,11 @@ export default {
                 hora: '',
                 observacoes: ''
             },
-            consultasDisponiveis: [
-                {
-                    id: 1,
-                    medico: 'Dr. Oliveira',
-                    especialidade: 'Clínica Geral',
-                    disponivel: true,
-                    paciente: null,
-                    horario: null
-                },
-                {
-                    id: 2,
-                    medico: 'Dra. Costa',
-                    especialidade: 'Pediatria',
-                    disponivel: false,
-                    paciente: 'Maria Oliveira',
-                    horario: '15:30'
-                }
-            ],
-            historicoConsultas: [
-                {
-                    id: 1,
-                    medico: 'Dr. Mendes',
-                    data: '25/10/2025',
-                    duracao: '30 min',
-                    status: 'concluida'
-                },
-                {
-                    id: 2,
-                    medico: 'Dra. Lima',
-                    data: '20/10/2025',
-                    duracao: '25 min',
-                    status: 'concluida'
-                }
-            ],
-            pacientes: [
-                { id: 1, nome: 'João Silva' },
-                { id: 2, nome: 'Maria Oliveira' },
-                { id: 3, nome: 'Carlos Souza' },
-                { id: 4, nome: 'Ana Costa' },
-                { id: 5, nome: 'Pedro Santos' }
-            ],
-            medicos: [
-                { id: 1, nome: 'Dr. Silva', especialidade: 'Cardiologia' },
-                { id: 2, nome: 'Dra. Santos', especialidade: 'Dermatologia' },
-                { id: 3, nome: 'Dr. Oliveira', especialidade: 'Clínica Geral' },
-                { id: 4, nome: 'Dra. Costa', especialidade: 'Pediatria' },
-                { id: 5, nome: 'Dr. Mendes', especialidade: 'Ortopedia' }
-            ],
-            horariosDisponiveis: [
-                '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
-                '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30'
-            ]
+            consultasDisponiveis: mockData.teleconsultas.consultasDisponiveis,
+            historicoConsultas: mockData.teleconsultas.historicoConsultas,
+            pacientes: mockData.teleconsultas.pacientes,
+            medicos: mockData.teleconsultas.medicos,
+            horariosDisponiveis: mockData.teleconsultas.horariosDisponiveis
         }
     },
     computed: {

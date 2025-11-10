@@ -62,6 +62,7 @@
 
 <script>
 import ModalProfissional from './modais/ModalProfissional.vue';
+import mockData from '@/data';
 
 export default {
     name: 'Profissionais',
@@ -73,110 +74,7 @@ export default {
             modalAberto: false,
             tipoModal: 'form', // 'form' ou 'view'
             profissionalSelecionado: null,
-            profissionais: [
-                {
-                    id: 1,
-                    nome: 'Dr. Carlos Silva',
-                    cpf: '123.456.789-00',
-                    registro: 'CRM 123456-SP',
-                    especialidade: 'Cardiologia',
-                    cargo: 'Médico',
-                    dataNascimento: '1985-03-15',
-                    genero: 'Masculino',
-                    telefone: '(11) 98765-4321',
-                    email: 'carlos.silva@hospital.com',
-                    endereco: 'Rua das Acácias, 789, Jardins, São Paulo - SP',
-                    dataAdmissao: '2020-01-15',
-                    status: 'Ativo',
-                    horarioTrabalho: '08:00 - 18:00',
-                    diasTrabalho: 'Segunda a Sexta'
-                },
-                {
-                    id: 2,
-                    nome: 'Dra. Ana Costa',
-                    cpf: '987.654.321-00',
-                    registro: 'CRM 654321-SP',
-                    especialidade: 'Pediatria',
-                    cargo: 'Médica',
-                    dataNascimento: '1990-07-22',
-                    genero: 'Feminino',
-                    telefone: '(11) 91234-5678',
-                    email: 'ana.costa@hospital.com',
-                    endereco: 'Av. Brasil, 456, Centro, São Paulo - SP',
-                    dataAdmissao: '2019-05-20',
-                    status: 'Ativo',
-                    horarioTrabalho: '07:00 - 13:00',
-                    diasTrabalho: 'Segunda a Sábado'
-                },
-                {
-                    id: 3,
-                    nome: 'Enf. Beatriz Souza',
-                    cpf: '456.789.123-00',
-                    registro: 'COREN 789456-SP',
-                    especialidade: 'Enfermagem Geral',
-                    cargo: 'Enfermeira',
-                    dataNascimento: '1988-11-10',
-                    genero: 'Feminino',
-                    telefone: '(11) 97654-3210',
-                    email: 'beatriz.souza@hospital.com',
-                    endereco: 'Rua das Palmeiras, 321, Vila Maria, São Paulo - SP',
-                    dataAdmissao: '2018-03-10',
-                    status: 'Ativo',
-                    horarioTrabalho: '12:00 - 00:00',
-                    diasTrabalho: 'Escala 12x36'
-                },
-                {
-                    id: 4,
-                    nome: 'Dr. Ricardo Mendes',
-                    cpf: '321.654.987-00',
-                    registro: 'CRM 987654-SP',
-                    especialidade: 'Ortopedia',
-                    cargo: 'Médico',
-                    dataNascimento: '1982-04-18',
-                    genero: 'Masculino',
-                    telefone: '(11) 96543-2109',
-                    email: 'ricardo.mendes@hospital.com',
-                    endereco: 'Av. Independência, 987, Ipiranga, São Paulo - SP',
-                    dataAdmissao: '2017-09-01',
-                    status: 'Ativo',
-                    horarioTrabalho: '13:00 - 19:00',
-                    diasTrabalho: 'Segunda a Sexta'
-                },
-                {
-                    id: 5,
-                    nome: 'Dra. Fernanda Lima',
-                    cpf: '789.123.456-00',
-                    registro: 'CRM 456789-SP',
-                    especialidade: 'Ginecologia',
-                    cargo: 'Médica',
-                    dataNascimento: '1987-09-25',
-                    genero: 'Feminino',
-                    telefone: '(11) 95432-1098',
-                    email: 'fernanda.lima@hospital.com',
-                    endereco: 'Rua dos Lírios, 654, Moema, São Paulo - SP',
-                    dataAdmissao: '2021-02-15',
-                    status: 'Ativo',
-                    horarioTrabalho: '08:00 - 14:00',
-                    diasTrabalho: 'Segunda, Quarta e Sexta'
-                },
-                {
-                    id: 6,
-                    nome: 'Téc. Paulo Santos',
-                    cpf: '147.258.369-00',
-                    registro: 'COREN 258147-SP',
-                    especialidade: 'Radiologia',
-                    cargo: 'Técnico em Radiologia',
-                    dataNascimento: '1992-12-05',
-                    genero: 'Masculino',
-                    telefone: '(11) 94321-0987',
-                    email: 'paulo.santos@hospital.com',
-                    endereco: 'Rua São João, 159, República, São Paulo - SP',
-                    dataAdmissao: '2022-06-01',
-                    status: 'Inativo',
-                    horarioTrabalho: '06:00 - 14:00',
-                    diasTrabalho: 'Segunda a Sexta'
-                }
-            ]
+            profissionais: mockData.profissionais
         }
     },
     methods: {

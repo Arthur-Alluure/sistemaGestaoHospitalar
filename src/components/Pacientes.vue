@@ -53,6 +53,7 @@
 
 <script>
 import ModalPaciente from './modais/ModalPaciente.vue';
+import mockData from '@/data';
 
 export default {
   name: 'Pacientes',
@@ -64,47 +65,7 @@ export default {
       modalAberto: false,
       tipoModal: 'form', // 'form' ou 'view'
       pacienteSelecionado: null,
-      pacientes: [
-        {
-          id: 1,
-          nome: 'João Silva',
-          cpf: '123.456.789-00',
-          dataNascimento: '1993-05-15',
-          idade: 30,
-          genero: 'Masculino',
-          telefone: '(11) 98765-4321',
-          email: 'joao.silva@email.com',
-          endereco: 'Rua das Flores, 123, Centro, São Paulo - SP',
-          convenio: 'Unimed',
-          numeroCarteira: '123456789'
-        },
-        {
-          id: 2,
-          nome: 'Maria Oliveira',
-          cpf: '987.654.321-00',
-          dataNascimento: '1998-08-20',
-          idade: 25,
-          genero: 'Feminino',
-          telefone: '(11) 91234-5678',
-          email: 'maria.oliveira@email.com',
-          endereco: 'Av. Paulista, 456, Bela Vista, São Paulo - SP',
-          convenio: 'Bradesco Saúde',
-          numeroCarteira: '987654321'
-        },
-        {
-          id: 3,
-          nome: 'Carlos Souza',
-          cpf: '456.789.123-00',
-          dataNascimento: '1983-12-10',
-          idade: 40,
-          genero: 'Masculino',
-          telefone: '(11) 99999-8888',
-          email: 'carlos.souza@email.com',
-          endereco: 'Rua Augusta, 789, Consolação, São Paulo - SP',
-          convenio: '',
-          numeroCarteira: ''
-        },
-      ]
+      pacientes: mockData.pacientes
     }
   },
   methods: {
@@ -140,7 +101,8 @@ export default {
       return idade;
     },
     salvarPaciente(dadosPaciente) {
-      const idade = this.calcularIdade(dadosPaciente.dataNascimento);
+      const dataNascimentoBR = this.converterDataParaBR(dadosPaciente.dataNascimento);
+      const idade = this.calcularIdadeISO(dadosPaciente.dataNascimento);
 
       if (this.pacienteSelecionado) {
         // Editar paciente existente
@@ -149,7 +111,9 @@ export default {
           this.pacientes[index] = {
             ...this.pacientes[index],
             ...dadosPaciente,
-            idade: idade
+            dataNascimento: dataNascimentoBR,
+            idade: idade,
+            status: this.pacientes[index].status || 'ativo'
           };
         }
       } else {
@@ -157,10 +121,34 @@ export default {
         const novoPaciente = {
           id: this.pacientes.length > 0 ? Math.max(...this.pacientes.map(p => p.id)) + 1 : 1,
           ...dadosPaciente,
-          idade: idade
+          dataNascimento: dataNascimentoBR,
+          idade: idade,
+          status: 'ativo'
         };
         this.pacientes.push(novoPaciente);
       }
+      
+      this.fecharModal();
+    },
+    converterDataParaBR(dataISO) {
+      // Converte de yyyy-mm-dd para dd/mm/yyyy
+      if (!dataISO) return '';
+      const [ano, mes, dia] = dataISO.split('-');
+      return `${dia}/${mes}/${ano}`;
+    },
+    calcularIdadeISO(dataISO) {
+      // Calcula idade a partir da data no formato ISO
+      if (!dataISO) return 0;
+      const hoje = new Date();
+      const nascimento = new Date(dataISO);
+      let idade = hoje.getFullYear() - nascimento.getFullYear();
+      const mes = hoje.getMonth() - nascimento.getMonth();
+
+      if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+        idade--;
+      }
+
+      return idade;
     }
   }
 }

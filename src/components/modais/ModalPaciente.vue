@@ -272,14 +272,15 @@ export default {
                 this.form = {
                     nome: this.paciente.nome || '',
                     cpf: this.paciente.cpf || '',
-                    dataNascimento: this.paciente.dataNascimento || '',
+                    dataNascimento: this.converterDataParaISO(this.paciente.dataNascimento) || '',
                     genero: this.paciente.genero || '',
                     telefone: this.paciente.telefone || '',
                     email: this.paciente.email || '',
                     endereco: this.paciente.endereco || '',
                     convenio: this.paciente.convenio || '',
                     numeroCarteira: this.paciente.numeroCarteira || '',
-                    observacoes: this.paciente.observacoes || ''
+                    observacoes: this.paciente.observacoes || '',
+                    perfilPermissao: this.paciente.perfilPermissao || 'Paciente'
                 };
             } else {
                 this.resetarFormulario();
@@ -296,7 +297,8 @@ export default {
                 endereco: '',
                 convenio: '',
                 numeroCarteira: '',
-                observacoes: ''
+                observacoes: '',
+                perfilPermissao: 'Paciente'
             };
         },
         salvar() {
@@ -335,8 +337,29 @@ export default {
         },
         formatarData(data) {
             if (!data) return 'Não informado';
-            const [ano, mes, dia] = data.split('-');
-            return `${dia}/${mes}/${ano}`;
+            
+            // Verifica se já está no formato brasileiro (dd/mm/yyyy)
+            if (data.includes('/')) {
+                return data;
+            }
+            
+            // Se estiver no formato ISO (yyyy-mm-dd), converte
+            if (data.includes('-')) {
+                const [ano, mes, dia] = data.split('-');
+                return `${dia}/${mes}/${ano}`;
+            }
+            
+            return data;
+        },
+        converterDataParaISO(dataBrasileira) {
+            // Converte de dd/mm/yyyy para yyyy-mm-dd
+            if (!dataBrasileira) return '';
+            const partes = dataBrasileira.split('/');
+            if (partes.length === 3) {
+                const [dia, mes, ano] = partes;
+                return `${ano}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
+            }
+            return dataBrasileira; // Retorna como está se já estiver em outro formato
         }
     }
 }

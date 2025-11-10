@@ -246,20 +246,20 @@ export default {
             dadosPessoais: {
                 nome: this.usuario.nome,
                 email: this.usuario.email,
-                telefone: '(11) 98765-4321',
-                dataNascimento: '1995-06-20',
-                cpf: '123.456.789-00',
-                genero: 'Masculino',
-                cep: '01310-100',
-                endereco: 'Av. Paulista, 1578',
-                cidade: 'São Paulo',
-                estado: 'SP'
+                telefone: this.usuario.telefone,
+                dataNascimento: this.usuario.dataNascimento,
+                cpf: this.usuario.cpf,
+                genero: this.usuario.genero,
+                cep: this.usuario.cep,
+                endereco: this.usuario.endereco,
+                cidade: this.usuario.cidade,
+                estado: this.usuario.estado
             },
             dadosProfissionais: {
-                cargo: 'Administrador do Sistema',
-                especialidade: 'Gestão Hospitalar',
-                registro: '-',
-                dataAdmissao: '2023-01-10'
+                cargo: this.usuario.dadosProfissionais.cargo,
+                especialidade: this.usuario.dadosProfissionais.especialidade,
+                registro: this.usuario.dadosProfissionais.registro,
+                dataAdmissao: this.usuario.dadosProfissionais.dataAdmissao
             },
             seguranca: {
                 senhaAtual: '',
@@ -267,8 +267,8 @@ export default {
                 confirmarSenha: ''
             },
             preferencias: {
-                notificacoesEmail: true,
-                notificacoesPush: true
+                notificacoesEmail: this.usuario.preferencias.notificacoesEmail,
+                notificacoesPush: this.usuario.preferencias.notificacoesPush
             }
         }
     },

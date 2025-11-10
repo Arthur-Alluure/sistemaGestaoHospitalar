@@ -105,103 +105,14 @@
 </template>
 
 <script>
+import mockData from '@/data'
+
 export default {
     name: 'Notificacoes',
     data() {
         return {
             filtroSelecionado: 'todas',
-            notificacoes: [
-                {
-                    id: 1,
-                    tipo: 'consulta',
-                    titulo: 'Consulta Agendada',
-                    mensagem: 'Nova consulta agendada com Dr. Carlos Silva para Maria Santos às 14:00 de hoje.',
-                    data: new Date().toISOString(),
-                    lida: false,
-                    prioridade: 'alta'
-                },
-                {
-                    id: 2,
-                    tipo: 'consulta',
-                    titulo: 'Lembrete de Consulta',
-                    mensagem: 'Consulta com Dr. Ana Costa para João Oliveira começa em 30 minutos.',
-                    data: new Date(Date.now() - 15 * 60 * 1000).toISOString(),
-                    lida: false,
-                    prioridade: 'alta'
-                },
-                {
-                    id: 3,
-                    tipo: 'paciente',
-                    titulo: 'Novo Paciente Cadastrado',
-                    mensagem: 'Pedro Alves foi cadastrado no sistema com sucesso.',
-                    data: new Date(Date.now() - 60 * 60 * 1000).toISOString(),
-                    lida: false,
-                    prioridade: 'normal'
-                },
-                {
-                    id: 4,
-                    tipo: 'consulta',
-                    titulo: 'Consulta Cancelada',
-                    mensagem: 'A consulta de Ana Lima com Dra. Beatriz Souza foi cancelada.',
-                    data: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
-                    lida: true,
-                    prioridade: 'normal'
-                },
-                {
-                    id: 5,
-                    tipo: 'sistema',
-                    titulo: 'Atualização do Sistema',
-                    mensagem: 'Nova versão do sistema disponível. Clique para atualizar.',
-                    data: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
-                    lida: true,
-                    prioridade: 'normal'
-                },
-                {
-                    id: 6,
-                    tipo: 'paciente',
-                    titulo: 'Prontuário Atualizado',
-                    mensagem: 'O prontuário de Carlos Mendes foi atualizado com novos exames.',
-                    data: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(),
-                    lida: true,
-                    prioridade: 'normal'
-                },
-                {
-                    id: 7,
-                    tipo: 'lembrete',
-                    titulo: 'Revisão de Prontuários',
-                    mensagem: 'Lembrete: Revisar prontuários pendentes antes do fim do expediente.',
-                    data: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
-                    lida: false,
-                    prioridade: 'normal'
-                },
-                {
-                    id: 8,
-                    tipo: 'sistema',
-                    titulo: 'Backup Realizado',
-                    mensagem: 'Backup automático dos dados realizado com sucesso às 02:00.',
-                    data: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
-                    lida: true,
-                    prioridade: 'baixa'
-                },
-                {
-                    id: 9,
-                    tipo: 'consulta',
-                    titulo: 'Consulta Reagendada',
-                    mensagem: 'Consulta de Fernanda Lima reagendada para amanhã às 10:00.',
-                    data: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
-                    lida: true,
-                    prioridade: 'normal'
-                },
-                {
-                    id: 10,
-                    tipo: 'lembrete',
-                    titulo: 'Reunião de Equipe',
-                    mensagem: 'Reunião de equipe agendada para sexta-feira às 15:00.',
-                    data: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
-                    lida: true,
-                    prioridade: 'normal'
-                }
-            ]
+            notificacoes: mockData.notificacoes
         }
     },
     computed: {

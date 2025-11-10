@@ -71,6 +71,7 @@
 
 <script>
 import ModalAgendamento from './modais/ModalAgendamento.vue';
+import mockData from '@/data';
 
 export default {
     name: 'Agendamento',
@@ -81,42 +82,10 @@ export default {
         return {
             modalAberto: false,
             consultaSelecionada: null,
-            proximasConsultas: [
-                {
-                    id: 1,
-                    paciente: 'João Silva',
-                    medico: 'Dr. Silva',
-                    especialidade: 'Cardiologia',
-                    data: 'Hoje',
-                    hora: '14:30'
-                },
-                {
-                    id: 2,
-                    paciente: 'Maria Oliveira',
-                    medico: 'Dra. Santos',
-                    especialidade: 'Dermatologia',
-                    data: 'Amanhã',
-                    hora: '09:00'
-                }
-            ],
-            pacientes: [
-                { id: 1, nome: 'João Silva' },
-                { id: 2, nome: 'Maria Oliveira' },
-                { id: 3, nome: 'Carlos Souza' },
-                { id: 4, nome: 'Ana Costa' },
-                { id: 5, nome: 'Pedro Santos' }
-            ],
-            medicos: [
-                { id: 1, nome: 'Dr. Silva', especialidade: 'Cardiologia' },
-                { id: 2, nome: 'Dra. Santos', especialidade: 'Dermatologia' },
-                { id: 3, nome: 'Dr. Oliveira', especialidade: 'Clínica Geral' },
-                { id: 4, nome: 'Dra. Costa', especialidade: 'Pediatria' },
-                { id: 5, nome: 'Dr. Mendes', especialidade: 'Ortopedia' }
-            ],
-            horariosDisponiveis: [
-                '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
-                '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30'
-            ]
+            proximasConsultas: mockData.agendamentos.proximasConsultas,
+            pacientes: mockData.agendamentos.pacientes,
+            medicos: mockData.agendamentos.medicos,
+            horariosDisponiveis: mockData.agendamentos.horariosDisponiveis
         }
     },
     computed: {
