@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <Header :active-section="conteudo" @navigate="navegarPara" />
-    <div class="app-container">
-      <Sidebar :active-item="sidebarItem" @select="selecionarItemSidebar" />
-      <main>
-        <ConteudoPrincipal :current-section="conteudo" :sidebar-section="sidebarItem" :usuario="usuario" @navigate="navegarPara" />
-      </main>
-    </div>
+    <!-- Tela de Login -->
+    <Login v-if="!logado" @login-success="logado = true" />
+
+    <!-- Aplicação Principal -->
+    <template v-else>
+      <Header :active-section="conteudo" @navigate="navegarPara" />
+      <div class="app-container">
+        <Sidebar :active-item="sidebarItem" @select="selecionarItemSidebar" @logout="realizarLogout" />
+        <main>
+          <ConteudoPrincipal :current-section="conteudo" :sidebar-section="sidebarItem" :usuario="usuario"
+            @navigate="navegarPara" />
+        </main>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -15,17 +22,20 @@ import Header from './components/Header.vue';
 import Sidebar from './components/Sidebar.vue';
 import ConteudoPrincipal from './components/ConteudoPrincipal.vue';
 import mockData from './data';
+import Login from './components/Login.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
     Sidebar,
-    ConteudoPrincipal
+    ConteudoPrincipal,
+    Login
   },
   data() {
     return {
       conteudo: null,
+      logado: false,
       sidebarItem: 'dashboard',
       usuario: { ...mockData.usuario }
     }
@@ -38,6 +48,11 @@ export default {
     selecionarItemSidebar(item) {
       this.sidebarItem = item;
       this.conteudo = null; // Limpa o header quando navega pela sidebar
+    },
+    realizarLogout() { // Reseta o estado para a tela de login
+      this.logado = false;
+      this.conteudo = null;
+      this.sidebarItem = 'dashboard';
     }
   }
 }

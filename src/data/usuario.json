@@ -20,5 +20,9 @@
     "preferencias": {
         "notificacoesEmail": true,
         "notificacoesPush": true
+    },
+    "login": {
+        "usuario": "arthur.moreira",
+        "senha": "superAdminProjetoSGHSS2025@!"
     }
 }

@@ -308,7 +308,6 @@ export default {
                 return;
             }
             alert('Dados pessoais salvos com sucesso!');
-            console.log('Salvando dados pessoais:', this.dadosPessoais);
         },
         salvarDadosProfissionais() {
             if (!this.dadosProfissionais.cargo) {
@@ -316,11 +315,14 @@ export default {
                 return;
             }
             alert('Dados profissionais salvos com sucesso!');
-            console.log('Salvando dados profissionais:', this.dadosProfissionais);
         },
         alterarSenha() {
             if (!this.seguranca.senhaAtual) {
                 alert('Digite sua senha atual!');
+                return;
+            }
+            if (this.seguranca.senhaAtual !== this.usuario.login.senha) {
+                alert('Senha atual não corresponde!');
                 return;
             }
             if (!this.seguranca.novaSenha || !this.seguranca.confirmarSenha) {
@@ -333,6 +335,10 @@ export default {
             }
             if (this.seguranca.novaSenha.length < 8) {
                 alert('A senha deve ter no mínimo 8 caracteres!');
+                return;
+            }
+            if (this.seguranca.senhaAtual === this.seguranca.novaSenha) {
+                alert('A nova senha deve ser diferente da senha atual!');
                 return;
             }
 

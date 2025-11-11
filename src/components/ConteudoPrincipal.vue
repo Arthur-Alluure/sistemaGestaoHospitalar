@@ -21,7 +21,6 @@
     <!-- Seção de Profissionais (Sidebar) -->
     <Profissionais v-if="sidebarSection === 'profissionais'" />
 
-
     <!-- Seção de Prontuário (Sidebar) -->
     <ProntuarioEletronico v-if="sidebarSection === 'prontuario'" @navigate="handleNavigate" />
 
@@ -31,13 +30,6 @@
     <!-- Seção de Gerenciamento (Sidebar) -->
     <Gerenciamento :usuario="usuario" v-if="sidebarSection === 'gerenciamento'" />
 
-    <!-- Seção de Logoff (Sidebar) -->
-    <div v-if="sidebarSection === 'logout'" class="secao-logout">
-      <h1>⭐ Logoff</h1>
-      <div class="card">
-        <p>Configurações de logoff em desenvolvimento...</p>
-      </div>
-    </div>
   </div>
 </template>
 

@@ -67,10 +67,22 @@ export default {
             default: 'dashboard'
         }
     },
-    emits: ['select'],
+    emits: ['select', 'logout'],
     methods: {
         selectItem(item) {
-            this.$emit('select', item);
+            if (item === 'logout') {
+                this.confirmarLogout();
+            } else {
+                this.$emit('select', item);
+            }
+        },
+        confirmarLogout() {
+            const confirmacao = confirm('Deseja realmente sair do sistema?');
+            if (confirmacao) {
+                this.$emit('logout');
+            } else {
+                this.$emit('select', 'dashboard');
+            }
         }
     }
 }
