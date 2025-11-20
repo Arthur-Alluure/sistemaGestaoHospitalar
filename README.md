@@ -1,42 +1,56 @@
-# sistema-gestao-hospitalar-ArthurM
+# Sistema de Gestão Hospitalar
 
-This template should help get you started developing with Vue 3 in Vite.
+Projeto que simula um sistema de gestão hospitalar, com o foco em ser uma solução para instituições de saúde que buscam otimizar seus processos, aumentar a sua produtividade, buscar maior segurança de suas informações e escalar seu negócio.
 
-## Recommended IDE Setup
+De primeiro momento, o projeto tem seu foco no front-end utilizando Vue.js com TypeScript.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🛠️ Tecnologias
 
-## Recommended Browser Setup
+- **Vue.js 3** - Framework JavaScript progressivo
+- **TypeScript** - Superset tipado do JavaScript
+- **Vite** - Build tool e dev server
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## ⚙️ Como Rodar o Projeto
 
-## Type Support for `.vue` Imports in TS
+### 📋 Pré-requisitos
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- [Node.js](https://nodejs.org/en/) (versão 18 ou superior)
+- npm ou yarn instalado globalmente
 
-## Customize configuration
+### 🚀 Passos
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/Arthur-Alluure/sistemaGestaoHospitalar.git
+   ```
 
-## Project Setup
+2. Acesse a pasta do projeto:
+   ```bash
+   cd sistemaGestaoHospitalar
+   ```
 
-```sh
-npm install
-```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-### Compile and Hot-Reload for Development
+4. Execute o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
 
-```sh
-npm run dev
-```
+5. Acesse o projeto no navegador no localHost informado
 
-### Type-Check, Compile and Minify for Production
+## 📦 Scripts Disponíveis
 
-```sh
-npm run build
-```
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Gera a build de produção
+- `npm run preview` - Visualiza a build de produção localmente
+
+## 📝 Licença
+
+Este projeto está licenciado sob a licença MIT — veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+**Desenvolvido por:** Arthur Rodrigues Moreira
